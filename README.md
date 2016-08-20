@@ -1,2 +1,3 @@
 # bergen
-AngularJS + NodeJS + MongoDB
+* NodeJS
+* React
