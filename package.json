@@ -65,7 +65,9 @@
     "yargs": "^5.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "font-awesome": "^4.6.3",
+    "google-maps-react": "^1.0.18",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.7.0"
