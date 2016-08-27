@@ -1,26 +1,31 @@
 import React, { PropTypes } from 'react';
 import { Router } from 'react-router';
-import styles from './styles.module.css';
 
 class App extends React.Component {
-	static propTypes = {
-		routes: PropTypes.object.isRequired,
-		history: PropTypes.object.isRequired
-	};
-	
-	get content() {
-		return (<Router
-			routes={this.props.routes}
-			history={this.props.history} />)
+	static contextTypes = {
+		router: PropTypes.object
 	}
-	
-	render() {
+
+	static propTypes = {
+		history: PropTypes.object.isRequired,
+		routes: PropTypes.element.isRequired
+	};
+
+	get content() {
 		return (
-			<div style={ { height: '100%' } }>
+			<Router
+				routes={this.props.routes}
+				history={this.props.history} />
+		)
+	}
+
+	render () {
+		return (
+			<div style={{ height: '100%' }}>
 				{this.content}
 			</div>
 		)
 	}
 }
 
-module.exports = App;
+export default App;

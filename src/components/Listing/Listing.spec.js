@@ -12,11 +12,19 @@ describe('<Listing />', () => {
 	}, {
 		name: "San Francisco"
 	}];
-	
 	beforeEach(() => {
-		wrapper = shallow(<Listing places={places} />)
+		wrapper = shallow(<Listing title={'Cafes'}
+															 places={places} />)
 	});
-	
-	it('wraps the component in a listing css class')
-	it('has an item for each place in the places prop')
+
+	it('wraps the component in a listing css class', () => {
+		expect(wrapper.find(`.${styles.container}`))
+			.to.be.defined;
+	})
+
+	it('has an item for each place in the places prop', () => {
+		expect(wrapper.find('Item').length)
+			.to.equal(places.length);
+	})
+
 })

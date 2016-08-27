@@ -5,19 +5,24 @@ import { shallow } from 'enzyme'
 import App from './App'
 import styles from './styles.module.css'
 
-describe('<App />', function () {
+describe('<App />', () => {
 	let wrapper;
+	let history = {};
 	beforeEach(() => {
-		wrapper = shallow(<App />)
-	});
-	
+		wrapper =
+			shallow(<App history={history}/>)
+	})
+
 	it('has a Router component', () => {
 		expect(wrapper.find('Router'))
 			.to.have.length(1);
 	});
-	
-	xit('has a single wrapper element', () => {
-		expect(wrapper.find(`.${styles.wrapper}`))
-			.to.have.length(1);
-	});
+
+	it('passes a history prop', () => {
+		const props = wrapper.find('Router').props();
+
+		expect(props.history)
+			.to.be.defined;
+	})
+
 });
